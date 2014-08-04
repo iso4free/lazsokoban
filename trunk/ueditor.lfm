@@ -22,7 +22,7 @@ object EditorForm: TEditorForm
     TabOrder = 0
     object GroupBox1: TGroupBox
       Left = 4
-      Height = 112
+      Height = 100
       Top = 4
       Width = 144
       Align = alTop
@@ -780,7 +780,7 @@ object EditorForm: TEditorForm
     object OpenBitBtn: TBitBtn
       Left = 4
       Height = 30
-      Top = 116
+      Top = 104
       Width = 144
       Align = alTop
       Caption = 'Открыть...'
@@ -790,7 +790,7 @@ object EditorForm: TEditorForm
     object ClearBitBtn: TBitBtn
       Left = 4
       Height = 30
-      Top = 146
+      Top = 134
       Width = 144
       Align = alTop
       Caption = 'Очистить уровень'
@@ -800,7 +800,7 @@ object EditorForm: TEditorForm
     object SaveBitBtn: TBitBtn
       Left = 4
       Height = 30
-      Top = 176
+      Top = 164
       Width = 144
       Align = alTop
       Caption = 'Сохранить'
@@ -810,7 +810,7 @@ object EditorForm: TEditorForm
     object SaveAsBitBtn: TBitBtn
       Left = 4
       Height = 30
-      Top = 206
+      Top = 194
       Width = 144
       Align = alTop
       Caption = 'Сохранить как...'
@@ -820,7 +820,7 @@ object EditorForm: TEditorForm
     object GroupBox2: TPanel
       Left = 4
       Height = 72
-      Top = 236
+      Top = 224
       Width = 144
       Align = alTop
       BevelInner = bvLowered
@@ -829,16 +829,16 @@ object EditorForm: TEditorForm
       TabOrder = 4
       object Label1: TLabel
         Left = 4
-        Height = 14
+        Height = 13
         Top = 7
-        Width = 46
+        Width = 40
         Caption = 'Ширина'
         ParentColor = False
       end
       object WidthSpinEdit: TSpinEdit
         Tag = 1
         Left = 69
-        Height = 20
+        Height = 21
         Top = 4
         Width = 50
         MaxValue = 30
@@ -852,8 +852,8 @@ object EditorForm: TEditorForm
         AnchorSideTop.Control = WidthSpinEdit
         AnchorSideTop.Side = asrBottom
         Left = 69
-        Height = 20
-        Top = 24
+        Height = 21
+        Top = 25
         Width = 50
         MaxValue = 30
         MinValue = 10
@@ -865,16 +865,16 @@ object EditorForm: TEditorForm
         AnchorSideTop.Control = Label1
         AnchorSideTop.Side = asrBottom
         Left = 3
-        Height = 14
-        Top = 26
-        Width = 42
+        Height = 13
+        Top = 25
+        Width = 37
         BorderSpacing.Top = 5
         Caption = 'Высота'
         ParentColor = False
       end
       object LevelNumSpinEdit: TSpinEdit
         Left = 69
-        Height = 20
+        Height = 21
         Top = 46
         Width = 50
         MaxValue = 1000
@@ -884,9 +884,9 @@ object EditorForm: TEditorForm
       end
       object Label3: TLabel
         Left = 2
-        Height = 14
+        Height = 13
         Top = 50
-        Width = 55
+        Width = 52
         Caption = '№ уровня'
         ParentColor = False
       end
@@ -929,4 +929,4 @@ object EditorForm: TEditorForm
     left = 96
     top = 304
   end
-end
+end

@@ -4,7 +4,7 @@ unit ugameutils;
 
 interface
 
-uses sysutils, FileUtil, Dialogs;
+uses sysutils, FileUtil, Dialogs, ulogger;
 
 type
      TPlayer = record
@@ -41,6 +41,11 @@ type
     procedure dBoxBack;    //вернуть перемещение ящика
     procedure lBoxBack;    //вернуть перемещение ящика
     procedure rBoxBack;    //вернуть перемещение ящика
+
+    procedure ChangeMatrixWidth(aNewWidth : Integer);
+    //изменить текущую ширину уровня
+    procedure ChangeMatrixHeight(aNewHeight : Integer);
+    //изменить текущую высоту уровня
 
 var
     Sklad : TSklad;                //игровое поле
@@ -146,7 +151,7 @@ begin
  Result:=false;
  AssignFile(t,levelname);
  Rewrite(t);
- for currline:=0 to High(Sklad)-1 do begin
+ for currline:=0 to High(Sklad) do begin
   s:='';
   for i:=0 to High(Sklad[currline])-1 do s:=s+Sklad[currline,i];
   WriteLn(t,s);
@@ -567,5 +572,44 @@ begin
  end;
 end;
 
+procedure ChangeMatrixWidth(aNewWidth: Integer);
+var i,j,d: Integer;
+begin
+ Log.LogStatus(IntToStr(High(Sklad[0])),'width change before');
+ d:=aNewWidth-High(Sklad[0]);//учитываем разницу
+ if d=0 then Exit;
+ Log.LogStatus(IntToStr(d),'d');
+ if d>0 then begin //если разница положительная, увеличиваем кол-во столбцов
+  //для каждой строки в цикле
+  for i:=0 to High(Sklad) do
+   SetLength(Sklad[i],aNewWidth+1);
+  //дополнительные столбцы заполняем пробелами
+  for i:=0 to High(Sklad) do
+   for j:=(High(Sklad[i])-d+1) to High(Sklad[i]) do Sklad[i,j]:=' ';
+ end else begin //уменьшаем ширину
+    //для каждой строки в цикле
+    for i:=0 to High(Sklad) do begin
+     Log.LogStatus(IntToStr(High(Sklad[i])),'width change before--');
+       SetLength(Sklad[i],aNewWidth+1);
+       Log.LogStatus(IntToStr(High(Sklad[i])),'width change after--');
+    end;
+ end;
+ Log.LogStatus(IntToStr(High(Sklad[0])),'width change after');
+end;
+
+procedure ChangeMatrixHeight(aNewHeight: Integer);
+var i,j,d: Integer;
+begin
+ d:=aNewHeight-High(Sklad);//учитываем разницу
+ if d=0 then Exit;
+ if d>0 then begin //добавляем строки
+  SetLength(Sklad,aNewHeight);
+  for i:=(High(Sklad)-d+1) to High(Sklad) do begin
+   SetLength(Sklad[i],High(Sklad[0]));//выделяем память под новую строку
+   for j:=0 to High(Sklad[0]) do Sklad[i,j]:=' ';
+  end;
+ end else SetLength(Sklad,aNewHeight); //иначе уменьшаем колличество строк
+end;
+
 end.
-
+

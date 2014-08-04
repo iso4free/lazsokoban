@@ -5,7 +5,7 @@ object Form1: TForm1
   Width = 432
   ActiveControl = SkladDrawGrid
   Caption = 'Socoban'
-  ClientHeight = 387
+  ClientHeight = 385
   ClientWidth = 432
   KeyPreview = True
   Menu = MainMenu1
@@ -18,17 +18,17 @@ object Form1: TForm1
   object Panel1: TPanel
     Left = 0
     Height = 58
-    Top = 329
+    Top = 327
     Width = 432
     Align = alBottom
     ClientHeight = 58
     ClientWidth = 432
     TabOrder = 0
     object BitBtn1: TBitBtn
-      Left = 347
+      Left = 336
       Height = 56
       Top = 1
-      Width = 84
+      Width = 95
       Align = alRight
       AutoSize = True
       Caption = 'Выход'
@@ -168,10 +168,10 @@ object Form1: TForm1
       TabOrder = 1
     end
     object BitBtn2: TBitBtn
-      Left = 268
+      Left = 248
       Height = 56
       Top = 1
-      Width = 79
+      Width = 88
       Align = alRight
       AutoSize = True
       Caption = 'Демо'
@@ -314,7 +314,7 @@ object Form1: TForm1
       Left = 1
       Height = 56
       Top = 1
-      Width = 93
+      Width = 103
       Align = alLeft
       AutoSize = True
       Caption = 'Рестарт'
@@ -455,10 +455,10 @@ object Form1: TForm1
       TabStop = False
     end
     object Button2: TBitBtn
-      Left = 94
+      Left = 104
       Height = 56
       Top = 1
-      Width = 94
+      Width = 104
       Align = alLeft
       AutoSize = True
       Caption = 'Вернуть'
@@ -600,7 +600,7 @@ object Form1: TForm1
   end
   object SkladDrawGrid: TDrawGrid
     Left = 0
-    Height = 329
+    Height = 327
     Top = 0
     Width = 432
     Align = alClient
@@ -672,4 +672,4 @@ object Form1: TForm1
     left = 339
     top = 31
   end
-end
+end
