@@ -1,0 +1,50 @@
+object Form1: TForm1
+  Left = 486
+  Height = 388
+  Top = 117
+  Width = 326
+  Caption = 'Socoban'
+  ClientHeight = 388
+  ClientWidth = 326
+  KeyPreview = True
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poScreenCenter
+  LCLVersion = '1.3'
+  object Panel1: TPanel
+    Left = 0
+    Height = 58
+    Top = 330
+    Width = 326
+    Align = alBottom
+    ClientHeight = 58
+    ClientWidth = 326
+    TabOrder = 0
+    object Button1: TButton
+      Left = 1
+      Height = 25
+      Top = 1
+      Width = 75
+      Caption = 'Начать'
+      TabOrder = 0
+    end
+  end
+  object SkladDrawGrid: TDrawGrid
+    Left = 0
+    Height = 330
+    Top = 0
+    Width = 326
+    Align = alClient
+    ColCount = 10
+    DefaultColWidth = 32
+    DefaultDrawing = False
+    DefaultRowHeight = 32
+    ExtendedSelect = False
+    FixedCols = 0
+    FixedRows = 0
+    GridLineWidth = 0
+    RowCount = 10
+    TabOrder = 1
+    OnDrawCell = SkladDrawGridDrawCell
+  end
+end
