@@ -12,6 +12,7 @@ object Form1: TForm1
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnKeyDown = FormKeyDown
+  OnResize = FormResize
   Position = poScreenCenter
   LCLVersion = '1.3'
   object Panel1: TPanel
@@ -639,6 +640,15 @@ object Form1: TForm1
       object MenuItem7: TMenuItem
         Caption = '-'
       end
+      object MenuItem2: TMenuItem
+        Caption = 'Сохранить игру'
+      end
+      object MenuItem10: TMenuItem
+        Caption = 'Восстановить игру'
+      end
+      object MenuItem11: TMenuItem
+        Caption = '-'
+      end
       object MenuItem8: TMenuItem
         Caption = 'Выход'
         ShortCut = 27
@@ -647,6 +657,10 @@ object Form1: TForm1
     end
     object EditorMenuItem: TMenuItem
       Caption = 'Редактор'
+      OnClick = EditorMenuItemClick
+    end
+    object MenuItem12: TMenuItem
+      Caption = 'Рекорды'
     end
     object MenuItem3: TMenuItem
       Caption = 'О программе...'
