@@ -1,8 +1,9 @@
 object Form1: TForm1
-  Left = 486
+  Left = 690
   Height = 388
-  Top = 117
+  Top = 187
   Width = 326
+  ActiveControl = SkladDrawGrid
   Caption = 'Socoban'
   ClientHeight = 388
   ClientWidth = 326
@@ -21,12 +22,14 @@ object Form1: TForm1
     ClientWidth = 326
     TabOrder = 0
     object Button1: TButton
-      Left = 1
+      Left = 0
       Height = 25
       Top = 1
       Width = 75
-      Caption = 'Начать'
+      Caption = 'рестарт'
+      OnClick = Button1Click
       TabOrder = 0
+      TabStop = False
     end
   end
   object SkladDrawGrid: TDrawGrid
@@ -46,5 +49,6 @@ object Form1: TForm1
     RowCount = 10
     TabOrder = 1
     OnDrawCell = SkladDrawGridDrawCell
+    OnKeyDown = SkladDrawGridKeyDown
   end
 end
