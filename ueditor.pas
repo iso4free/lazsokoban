@@ -58,7 +58,7 @@ var
   CellData : Char; //символ для установки в матрицу уровня
 
 implementation
- uses umain,ulogger;
+ uses umain;
 {$R *.lfm}
 
 { TEditorForm }
@@ -113,11 +113,12 @@ procedure TEditorForm.SkladDrawGridSelectCell(Sender: TObject; aCol,
   aRow: Integer; var CanSelect: Boolean);
 begin
   if CurrSymbol='' then Exit;
-  Sklad[aRow,aCol]:=CurrSymbol[1];
   if CurrSymbol='@' then begin
     Player.x:=aCol;
     Player.y:=aRow;
-  end;
+    if  Sklad[aRow,aCol]='.' then Sklad[aRow,aCol]:='+'
+     else Sklad[aRow,aCol]:=CurrSymbol[1];
+  end else Sklad[aRow,aCol]:=CurrSymbol[1];
   SkladDrawGrid.Repaint;
 end;
 
@@ -136,42 +137,18 @@ begin
 end;
 
 procedure TEditorForm.WidthSpinEditChange(Sender: TObject);
-var i,j,d: Integer;
 begin
  Case (Sender as TSpinEdit).Tag of
-  1:begin //ширина
-     Log.LogStatus(IntToStr(High(Sklad[0])),'width change before');
-     d:=WidthSpinEdit.Value-High(Sklad[0]);//учитываем разницу
-     Log.LogStatus(IntToStr(d),'d');
-     if d>0 then begin //если разница положительная, увеличиваем кол-во столбцов
-      //для каждой строки в цикле
-      for i:=0 to High(Sklad) do
-       SetLength(Sklad[i],High(Sklad[i])+d+1);
-      //дополнительные столбцы заполняем пробелами
-      for i:=0 to High(Sklad) do
-       for j:=(High(Sklad[i])-d+1) to  High(Sklad[i]) do Sklad[i,j]:=' ';
-     end else begin //уменьшаем ширину
-        //для каждой строки в цикле
-        for i:=0 to High(Sklad) do begin
-         Log.LogStatus(IntToStr(High(Sklad[i])),'width change before--');
-           SetLength(Sklad[i],High(Sklad[i])+d+1);
-           Log.LogStatus(IntToStr(High(Sklad[i])),'width change after--');
-        end;
-     end;
-     Log.LogStatus(IntToStr(High(Sklad[0])),'width change after');
-    end;
-  2:begin //высота
-       SetLength(Sklad,HeightSpinEdit.Value);
-       for i:=0 to High(Sklad) do SetLength(Sklad[i],HeightSpinEdit.Value);
-  end;
+  1:ChangeMatrixWidth((Sender as TSpinEdit).Value); //ширина
+  2:ChangeMatrixHeight((Sender as TSpinEdit).Value); //высота
  end;
  SkladDrawGrid.ColCount:=High(Sklad[0])+1; //количество колонок
  SkladDrawGrid.RowCount:=High(Sklad)+1; //количество строк
  //размеры формы подогнать под размеры уровня
  Width:=SkladDrawGrid.ColCount*SkladDrawGrid.DefaultColWidth+Panel1.Width+5;
  Height:=SkladDrawGrid.RowCount*SkladDrawGrid.DefaultRowHeight+5;
- SkladDrawGrid.Repaint;
+ SkladDrawGrid.Repaint;//перерисовываем поле редактора
 end;
 
 end.
-
+

@@ -167,8 +167,8 @@ begin
    EditorForm.WidthSpinEdit.Value:=High(Sklad[0]);
    EditorForm.HeightSpinEdit.Value:=High(Sklad);
    //размеры формы подогнать под размеры уровня
-   EditorForm.Width:=(High(Sklad[0])+1)*EditorForm.SkladDrawGrid.DefaultColWidth+EditorForm.Panel1.Width+5;
-   EditorForm.Height:=(High(Sklad)+1)*EditorForm.SkladDrawGrid.DefaultRowHeight+5;
+   EditorForm.Width:=(EditorForm.SkladDrawGrid.ColCount)*EditorForm.SkladDrawGrid.DefaultColWidth+EditorForm.Panel1.Width+5;
+   EditorForm.Height:=(EditorForm.SkladDrawGrid.RowCount)*EditorForm.SkladDrawGrid.DefaultRowHeight+5;
    CurrSymbol:=' ';//символ по умолчанию - пустое место
    EditorForm.SpeedButton2.Down:=true;//делаем нажатой соответствующую кнопку
    EditorForm.ShowModal;//показываем редактор
@@ -184,6 +184,7 @@ begin
   bPlayer.Free;
   bWall.Free;
   bFloor.Free;
+  Sklad:=nil;
 end;
 
 procedure TForm1.FormResize(Sender: TObject);
@@ -279,4 +280,4 @@ end;
 
 
 end.
-
+
