@@ -20,6 +20,10 @@ Type
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     EditorMenuItem: TMenuItem;
+    MenuItem10: TMenuItem;
+    MenuItem11: TMenuItem;
+    MenuItem12: TMenuItem;
+    MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
@@ -33,8 +37,10 @@ Type
     procedure BitBtn2Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure EditorMenuItemClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure FormResize(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
@@ -62,7 +68,7 @@ var
 
 implementation
 
-uses uabout;
+uses uabout, ueditor;
 {$R *.lfm}
 
 { TForm1 }
@@ -152,6 +158,23 @@ begin
  SkladDrawGrid.Repaint;
 end;
 
+procedure TForm1.EditorMenuItemClick(Sender: TObject);
+begin
+   LoadLevel(CurrLevel, Sklad);
+   EditorForm.LevelNumSpinEdit.Value:=CurrLevel;
+   EditorForm.SkladDrawGrid.ColCount:=High(Sklad[0])+1; //количество колонок
+   EditorForm.SkladDrawGrid.RowCount:=High(Sklad)+1; //количество строк
+   EditorForm.WidthSpinEdit.Value:=High(Sklad[0]);
+   EditorForm.HeightSpinEdit.Value:=High(Sklad);
+   //размеры формы подогнать под размеры уровня
+   EditorForm.Width:=(High(Sklad[0])+1)*EditorForm.SkladDrawGrid.DefaultColWidth+EditorForm.Panel1.Width+5;
+   EditorForm.Height:=(High(Sklad)+1)*EditorForm.SkladDrawGrid.DefaultRowHeight+5;
+   CurrSymbol:=' ';//символ по умолчанию - пустое место
+   EditorForm.SpeedButton2.Down:=true;//делаем нажатой соответствующую кнопку
+   EditorForm.ShowModal;//показываем редактор
+   SkladDrawGrid.Repaint;//после закрытия редактора перерисовываем уровень
+end;
+
 procedure TForm1.FormDestroy(Sender: TObject);
 begin
  //освобождаем память
@@ -161,6 +184,11 @@ begin
   bPlayer.Free;
   bWall.Free;
   bFloor.Free;
+end;
+
+procedure TForm1.FormResize(Sender: TObject);
+begin
+  Position:=poScreenCenter;
 end;
 
 procedure TForm1.MenuItem3Click(Sender: TObject);
@@ -191,6 +219,7 @@ begin
   //размеры формы подогнать под размеры уровня
   Width:=(High(Sklad[0])+1)*SkladDrawGrid.DefaultColWidth+5;
   Height:=(High(Sklad)+1)*SkladDrawGrid.DefaultRowHeight+Panel1.Height+25;
+  FormResize(Self);
 end;
 
 procedure TForm1.MenuItem8Click(Sender: TObject);
@@ -244,6 +273,7 @@ VK_ESCAPE: Close;
   //размеры отображаемого склада установить соответственно размеров уровня
   SkladDrawGrid.ColCount:=High(Sklad[0])+1; //количество колонок
   SkladDrawGrid.RowCount:=High(Sklad)+1; //количество строк
+  FormResize(Self);
  end;
 end;
 
