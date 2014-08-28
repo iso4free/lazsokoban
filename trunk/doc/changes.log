@@ -8,3 +8,5 @@
 10:38 04.08.2014
 * Проект опубликован на Google Code, постоянная ссылка SVN репозитория:
 svn checkout http://lazsokoban.googlecode.com/svn/trunk/ lazsokoban-read-only
+15:45 28.08.2014
+! Исправлено увеличение ширины/высоты уровня в редакторе
