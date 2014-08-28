@@ -843,7 +843,7 @@ object EditorForm: TEditorForm
         Width = 50
         MaxValue = 30
         MinValue = 10
-        OnExit = WidthSpinEditChange
+        OnChange = WidthSpinEditChange
         TabOrder = 0
         Value = 10
       end
@@ -857,7 +857,7 @@ object EditorForm: TEditorForm
         Width = 50
         MaxValue = 30
         MinValue = 10
-        OnExit = WidthSpinEditChange
+        OnChange = WidthSpinEditChange
         TabOrder = 1
         Value = 10
       end

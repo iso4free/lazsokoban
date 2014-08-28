@@ -58,7 +58,7 @@ var
   CellData : Char; //символ для установки в матрицу уровня
 
 implementation
- uses umain;
+ uses umain, ulogger;
 {$R *.lfm}
 
 { TEditorForm }
@@ -138,6 +138,7 @@ end;
 
 procedure TEditorForm.WidthSpinEditChange(Sender: TObject);
 begin
+ CanDraw:=false;
  Case (Sender as TSpinEdit).Tag of
   1:ChangeMatrixWidth((Sender as TSpinEdit).Value); //ширина
   2:ChangeMatrixHeight((Sender as TSpinEdit).Value); //высота
@@ -147,6 +148,7 @@ begin
  //размеры формы подогнать под размеры уровня
  Width:=SkladDrawGrid.ColCount*SkladDrawGrid.DefaultColWidth+Panel1.Width+5;
  Height:=SkladDrawGrid.RowCount*SkladDrawGrid.DefaultRowHeight+5;
+ CanDraw:=true;
  SkladDrawGrid.Repaint;//перерисовываем поле редактора
 end;
 

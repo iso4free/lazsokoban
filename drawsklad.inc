@@ -1,3 +1,4 @@
+  if not CanDraw then Exit;
   case Sklad[aRow,aCol] of
 ' ':SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bFloor.Picture.Bitmap);//пол
 '#':SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bWall.Picture.Bitmap);//стена

@@ -75,6 +75,7 @@ uses uabout, ueditor;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
+  CanDraw:=false;
   //динамическое создание компонента
   bFloor:=TImage.Create(self);
   //загрузка изображения из файла
@@ -97,6 +98,7 @@ begin
   //размеры формы подогнать под размеры уровня
   Width:=(High(Sklad[0])+1)*SkladDrawGrid.DefaultColWidth+5;
   Height:=(High(Sklad)+1)*SkladDrawGrid.DefaultRowHeight+Panel1.Height+25;
+  CanDraw:=true;
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
@@ -164,8 +166,8 @@ begin
    EditorForm.LevelNumSpinEdit.Value:=CurrLevel;
    EditorForm.SkladDrawGrid.ColCount:=High(Sklad[0])+1; //количество колонок
    EditorForm.SkladDrawGrid.RowCount:=High(Sklad)+1; //количество строк
-   EditorForm.WidthSpinEdit.Value:=High(Sklad[0]);
-   EditorForm.HeightSpinEdit.Value:=High(Sklad);
+   EditorForm.WidthSpinEdit.Value:=High(Sklad[0])+1;
+   EditorForm.HeightSpinEdit.Value:=High(Sklad)+1;
    //размеры формы подогнать под размеры уровня
    EditorForm.Width:=(EditorForm.SkladDrawGrid.ColCount)*EditorForm.SkladDrawGrid.DefaultColWidth+EditorForm.Panel1.Width+5;
    EditorForm.Height:=(EditorForm.SkladDrawGrid.RowCount)*EditorForm.SkladDrawGrid.DefaultRowHeight+5;

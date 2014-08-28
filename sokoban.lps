@@ -4,11 +4,11 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="18">
+    <Units Count="20">
       <Unit0>
         <Filename Value="sokoban.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="106"/>
+        <UsageCount Value="110"/>
       </Unit0>
       <Unit1>
         <Filename Value="umain.pas"/>
@@ -18,9 +18,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="umain"/>
         <WindowIndex Value="1"/>
-        <TopLine Value="156"/>
-        <CursorPos X="57" Y="171"/>
-        <UsageCount Value="106"/>
+        <TopLine Value="215"/>
+        <CursorPos X="24" Y="223"/>
+        <UsageCount Value="110"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -32,7 +32,7 @@
         <ResourceBaseClass Value="Form"/>
         <TopLine Value="3"/>
         <CursorPos X="39" Y="49"/>
-        <UsageCount Value="81"/>
+        <UsageCount Value="85"/>
       </Unit2>
       <Unit3>
         <Filename Value="ueditor.pas"/>
@@ -44,8 +44,8 @@
         <EditorIndex Value="2"/>
         <WindowIndex Value="1"/>
         <TopLine Value="136"/>
-        <CursorPos X="6" Y="137"/>
-        <UsageCount Value="78"/>
+        <CursorPos X="28" Y="149"/>
+        <UsageCount Value="82"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -56,9 +56,9 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="1"/>
-        <TopLine Value="595"/>
-        <CursorPos X="26" Y="607"/>
-        <UsageCount Value="68"/>
+        <TopLine Value="584"/>
+        <CursorPos X="28" Y="592"/>
+        <UsageCount Value="72"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
@@ -66,7 +66,8 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="1"/>
-        <UsageCount Value="67"/>
+        <CursorPos X="18" Y="2"/>
+        <UsageCount Value="71"/>
       </Unit5>
       <Unit6>
         <Filename Value="C:\lazarus\lcl\extctrls.pp"/>
@@ -100,9 +101,11 @@
       </Unit10>
       <Unit11>
         <Filename Value="C:\development\fpc\rtl\inc\dynarr.inc"/>
-        <TopLine Value="160"/>
-        <CursorPos Y="169"/>
-        <UsageCount Value="6"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="1"/>
+        <TopLine Value="46"/>
+        <CursorPos Y="57"/>
+        <UsageCount Value="10"/>
       </Unit11>
       <Unit12>
         <Filename Value="C:\lazarus\lcl\include\customform.inc"/>
@@ -138,135 +141,161 @@
       </Unit16>
       <Unit17>
         <Filename Value="C:\lazarus\lcl\grids.pas"/>
-        <UnitName Value="Grids"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="1"/>
-        <TopLine Value="5569"/>
-        <CursorPos Y="5577"/>
+        <TopLine Value="9562"/>
+        <CursorPos Y="9572"/>
         <UsageCount Value="10"/>
       </Unit17>
+      <Unit18>
+        <Filename Value="C:\lazarus\lcl\include\wincontrol.inc"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="1"/>
+        <TopLine Value="4772"/>
+        <CursorPos Y="4781"/>
+        <UsageCount Value="10"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="C:\development\fpc\rtl\inc\except.inc"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="1"/>
+        <TopLine Value="171"/>
+        <CursorPos Y="181"/>
+        <UsageCount Value="10"/>
+      </Unit19>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="ueditor.pas"/>
-        <Caret Line="138" Column="19" TopLine="136"/>
+        <Filename Value="ugameutils.pas"/>
+        <Caret Line="609" TopLine="596"/>
       </Position1>
       <Position2>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="577" Column="2" TopLine="569"/>
+        <Caret Line="610" TopLine="596"/>
       </Position2>
       <Position3>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="7" Column="42"/>
+        <Caret Line="611" Column="39" TopLine="596"/>
       </Position3>
       <Position4>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="578" Column="14" TopLine="570"/>
+        <Caret Line="614" Column="4" TopLine="599"/>
       </Position4>
       <Position5>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="576" Column="17" TopLine="570"/>
+        <Caret Line="604" TopLine="599"/>
       </Position5>
       <Position6>
-        <Filename Value="ueditor.pas"/>
-        <Caret Line="61" Column="12" TopLine="49"/>
+        <Filename Value="ugameutils.pas"/>
+        <Caret Line="605" TopLine="599"/>
       </Position6>
       <Position7>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="576" Column="21" TopLine="572"/>
+        <Caret Line="606" TopLine="599"/>
       </Position7>
       <Position8>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="77" Column="53" TopLine="135"/>
+        <Caret Line="607" TopLine="599"/>
       </Position8>
       <Position9>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="592" Column="45" TopLine="562"/>
+        <Caret Line="608" TopLine="599"/>
       </Position9>
       <Position10>
-        <Filename Value="ueditor.pas"/>
-        <Caret Line="139" TopLine="122"/>
+        <Filename Value="ugameutils.pas"/>
+        <Caret Line="614" TopLine="599"/>
       </Position10>
       <Position11>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="156" Column="32" TopLine="145"/>
+        <Caret Line="615" TopLine="599"/>
       </Position11>
       <Position12>
-        <Filename Value="ueditor.pas"/>
-        <Caret Line="109" Column="12" TopLine="109"/>
+        <Filename Value="ugameutils.pas"/>
+        <Caret Line="616" TopLine="599"/>
       </Position12>
       <Position13>
-        <Filename Value="umain.pas"/>
-        <Caret Line="192" TopLine="178"/>
+        <Filename Value="ueditor.pas"/>
+        <Caret Line="146" TopLine="136"/>
       </Position13>
       <Position14>
-        <Filename Value="umain.pas"/>
-        <Caret Line="166" Column="52" TopLine="163"/>
+        <Filename Value="ueditor.pas"/>
+        <Caret Line="147" TopLine="136"/>
       </Position14>
       <Position15>
-        <Filename Value="ueditor.pas"/>
-        <Caret Line="109" Column="12" TopLine="109"/>
+        <Filename Value="ugameutils.pas"/>
+        <Caret Line="611" Column="37" TopLine="599"/>
       </Position15>
       <Position16>
-        <Filename Value="ueditor.pas"/>
-        <Caret Line="145" Column="38" TopLine="138"/>
+        <Filename Value="ugameutils.pas"/>
+        <Caret Line="604" TopLine="599"/>
       </Position16>
       <Position17>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="609" Column="11" TopLine="595"/>
+        <Caret Line="605" TopLine="599"/>
       </Position17>
       <Position18>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="585" Column="34" TopLine="578"/>
+        <Caret Line="606" TopLine="599"/>
       </Position18>
       <Position19>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="607" Column="40" TopLine="597"/>
+        <Caret Line="607" TopLine="599"/>
       </Position19>
       <Position20>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="608" TopLine="597"/>
+        <Caret Line="608" TopLine="599"/>
       </Position20>
       <Position21>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="603" TopLine="597"/>
+        <Caret Line="614" TopLine="599"/>
       </Position21>
       <Position22>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="604" TopLine="597"/>
+        <Caret Line="615" TopLine="599"/>
       </Position22>
       <Position23>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="605" TopLine="597"/>
+        <Caret Line="616" TopLine="599"/>
       </Position23>
       <Position24>
-        <Filename Value="ugameutils.pas"/>
-        <Caret Line="606" TopLine="597"/>
+        <Filename Value="ueditor.pas"/>
+        <Caret Line="146" TopLine="136"/>
       </Position24>
       <Position25>
-        <Filename Value="ugameutils.pas"/>
-        <Caret Line="607" Column="24" TopLine="597"/>
+        <Filename Value="ueditor.pas"/>
+        <Caret Line="147" Column="38" TopLine="136"/>
       </Position25>
       <Position26>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="603" TopLine="597"/>
+        <Caret Line="604" TopLine="599"/>
       </Position26>
       <Position27>
-        <Filename Value="ugameutils.pas"/>
-        <Caret Line="604" TopLine="597"/>
+        <Filename Value="ueditor.pas"/>
+        <Caret Line="147" Column="38" TopLine="136"/>
       </Position27>
       <Position28>
-        <Filename Value="ugameutils.pas"/>
-        <Caret Line="605" TopLine="597"/>
+        <Filename Value="umain.pas"/>
+        <Caret Line="170" Column="51" TopLine="148"/>
       </Position28>
       <Position29>
-        <Filename Value="ugameutils.pas"/>
-        <Caret Line="609" TopLine="597"/>
+        <Filename Value="umain.pas"/>
+        <Caret Line="107" Column="7" TopLine="104"/>
       </Position29>
       <Position30>
         <Filename Value="ugameutils.pas"/>
-        <Caret Line="608" Column="35" TopLine="597"/>
+        <Caret Line="594" Column="30" TopLine="584"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>
+  <Debugging>
+    <BreakPoints Count="1">
+      <Item1>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="ugameutils.pas"/>
+        <Line Value="604"/>
+      </Item1>
+    </BreakPoints>
+  </Debugging>
 </CONFIG>
