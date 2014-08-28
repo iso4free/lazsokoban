@@ -642,12 +642,15 @@ object Form1: TForm1
       end
       object MenuItem2: TMenuItem
         Caption = 'Сохранить игру'
+        Visible = False
       end
       object MenuItem10: TMenuItem
         Caption = 'Восстановить игру'
+        Visible = False
       end
       object MenuItem11: TMenuItem
         Caption = '-'
+        Visible = False
       end
       object MenuItem8: TMenuItem
         Caption = 'Выход'
@@ -661,6 +664,7 @@ object Form1: TForm1
     end
     object MenuItem12: TMenuItem
       Caption = 'Рекорды'
+      Visible = False
     end
     object MenuItem3: TMenuItem
       Caption = 'О программе...'

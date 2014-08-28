@@ -57,6 +57,7 @@ var
     //Переменные, необходимые для редактора
     LevelFileName : String;       //имя файла для сохранения
     CurrSymbol    : String;       //Текущий символ для вставки при клике мышкой
+    CanDraw       : Boolean;
 
 implementation
 
@@ -576,21 +577,21 @@ procedure ChangeMatrixWidth(aNewWidth: Integer);
 var i,j,d: Integer;
 begin
  Log.LogStatus(IntToStr(High(Sklad[0])),'width change before');
- d:=aNewWidth-High(Sklad[0]);//учитываем разницу
+ d:=aNewWidth-(High(Sklad[0])+1);//учитываем разницу
  if d=0 then Exit;
  Log.LogStatus(IntToStr(d),'d');
  if d>0 then begin //если разница положительная, увеличиваем кол-во столбцов
   //для каждой строки в цикле
   for i:=0 to High(Sklad) do
-   SetLength(Sklad[i],aNewWidth+1);
+   SetLength(Sklad[i],aNewWidth);
   //дополнительные столбцы заполняем пробелами
   for i:=0 to High(Sklad) do
-   for j:=(High(Sklad[i])-d+1) to High(Sklad[i]) do Sklad[i,j]:=' ';
+   for j:=(High(Sklad[i])+1-d) to High(Sklad[i]) do Sklad[i,j]:=' ';
  end else begin //уменьшаем ширину
     //для каждой строки в цикле
     for i:=0 to High(Sklad) do begin
      Log.LogStatus(IntToStr(High(Sklad[i])),'width change before--');
-       SetLength(Sklad[i],aNewWidth+1);
+       SetLength(Sklad[i],aNewWidth);
        Log.LogStatus(IntToStr(High(Sklad[i])),'width change after--');
     end;
  end;
@@ -600,15 +601,18 @@ end;
 procedure ChangeMatrixHeight(aNewHeight: Integer);
 var i,j,d: Integer;
 begin
- d:=aNewHeight-High(Sklad);//учитываем разницу
+ Log.LogStatus(IntToStr(High(Sklad)),'height change before');
+ d:=aNewHeight-(High(Sklad)+1);//учитываем разницу
  if d=0 then Exit;
+ Log.LogStatus(IntToStr(d),'d');
  if d>0 then begin //добавляем строки
   SetLength(Sklad,aNewHeight);
   for i:=(High(Sklad)-d+1) to High(Sklad) do begin
-   SetLength(Sklad[i],High(Sklad[0]));//выделяем память под новую строку
+   SetLength(Sklad[i],High(Sklad[0])+1);//выделяем память под новую строку
    for j:=0 to High(Sklad[0]) do Sklad[i,j]:=' ';
   end;
  end else SetLength(Sklad,aNewHeight); //иначе уменьшаем колличество строк
+ Log.LogStatus(IntToStr(High(Sklad)),'height change after');
 end;
 
 end.
