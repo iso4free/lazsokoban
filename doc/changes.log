@@ -10,3 +10,5 @@
 svn checkout http://lazsokoban.googlecode.com/svn/trunk/ lazsokoban-read-only
 15:45 28.08.2014
 ! Исправлено увеличение ширины/высоты уровня в редакторе
+00:05 04.04.2015
+* Поправлено расположение полей в окне редактора

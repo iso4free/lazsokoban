@@ -52,6 +52,7 @@
         <ComponentName Value="AboutForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uabout"/>
       </Unit2>
       <Unit3>
         <Filename Value="ueditor.pas"/>
@@ -89,6 +90,9 @@
         </Win32>
       </Options>
     </Linking>
+    <Other>
+      <CompilerPath Value="$(CompPath)"/>
+    </Other>
   </CompilerOptions>
   <Debugging>
     <Exceptions Count="5">
@@ -109,4 +113,4 @@
       </Item5>
     </Exceptions>
   </Debugging>
-</CONFIG>
+</CONFIG>

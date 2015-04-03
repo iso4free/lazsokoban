@@ -577,6 +577,7 @@ procedure ChangeMatrixWidth(aNewWidth: Integer);
 var i,j,d: Integer;
 begin
  Log.LogStatus(IntToStr(High(Sklad[0])),'width change before');
+ Log.LogStatus(IntToStr(aNewWidth),'aNewWidth');
  d:=aNewWidth-(High(Sklad[0])+1);//учитываем разницу
  if d=0 then Exit;
  Log.LogStatus(IntToStr(d),'d');
@@ -589,7 +590,7 @@ begin
    for j:=(High(Sklad[i])+1-d) to High(Sklad[i]) do Sklad[i,j]:=' ';
  end else begin //уменьшаем ширину
     //для каждой строки в цикле
-    for i:=0 to High(Sklad) do begin
+    for i:=0 to High(Sklad)-1 do begin
      Log.LogStatus(IntToStr(High(Sklad[i])),'width change before--');
        SetLength(Sklad[i],aNewWidth);
        Log.LogStatus(IntToStr(High(Sklad[i])),'width change after--');
@@ -616,4 +617,4 @@ begin
 end;
 
 end.
-
+
