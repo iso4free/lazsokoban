@@ -23,6 +23,8 @@ Type
     MenuItem10: TMenuItem;
     MenuItem11: TMenuItem;
     MenuItem12: TMenuItem;
+    ChangeThemeMenuItem: TMenuItem;
+    N1: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -32,6 +34,7 @@ Type
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     OpenDialog1: TOpenDialog;
+    SelectDirectoryDialog1: TSelectDirectoryDialog;
     SkladDrawGrid: TDrawGrid;
     Panel1: TPanel;
     procedure BitBtn2Click(Sender: TObject);
@@ -41,6 +44,7 @@ Type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure ChangeThemeMenuItemClick(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
@@ -53,6 +57,7 @@ Type
   private
     { private declarations }
   public
+    procedure LoadSkin(aDir : String);
     { public declarations }
 
   end;
@@ -69,7 +74,7 @@ var
 implementation
 
 uses uabout, ueditor;
-{$R *.lfm}
+{$R *.frm}
 
 { TForm1 }
 
@@ -78,19 +83,14 @@ begin
   CanDraw:=false;
   //динамическое создание компонента
   bFloor:=TImage.Create(self);
-  //загрузка изображения из файла
-  bFloor.Picture.LoadFromFile(ProgramDirectory+DirectorySeparator+'data'+DirectorySeparator+'floor.png');
   bWall:=TImage.Create(self);
-  bWall.Picture.LoadFromFile(ProgramDirectory+DirectorySeparator+'data'+DirectorySeparator+'wall.jpg');
   bPlayer:=TImage.Create(self);
-  bPlayer.Picture.LoadFromFile(ProgramDirectory+DirectorySeparator+'data'+DirectorySeparator+'player.png');
   bPlace:=TImage.Create(self);
-  bPlace.Picture.LoadFromFile(ProgramDirectory+DirectorySeparator+'data'+DirectorySeparator+'place.png');
   bBox:=TImage.Create(self);
-  bBox.Picture.LoadFromFile(ProgramDirectory+DirectorySeparator+'data'+DirectorySeparator+'box.jpg');
   bPlacedBox:=TImage.Create(self);
-  bPlacedBox.Picture.LoadFromFile(ProgramDirectory+DirectorySeparator+'data'+DirectorySeparator+'placedbox.jpg');
-  CurrLevel:=0;
+
+  LoadSkin(ProgramDirectory+DirectorySeparator+'data');
+  CurrLevel :=0;
   Nextlevel;
   //размеры отображаемого склада установить соответственно размеров уровня
   SkladDrawGrid.ColCount:=High(Sklad[0])+1; //количество колонок
@@ -194,6 +194,17 @@ begin
   Position:=poScreenCenter;
 end;
 
+procedure TForm1.ChangeThemeMenuItemClick(Sender: TObject);
+var SkinPath : String;
+begin
+ //смена игровой темы оформления - выбор соответствующей папки с ассетами
+ SelectDirectoryDialog1.InitialDir:=ExtractFileDir(Application.ExeName);
+ if SelectDirectoryDialog1.Execute then begin
+  SkinPath:=SelectDirectoryDialog1.FileName;
+  LoadSkin(SkinPath);
+ end;
+end;
+
 procedure TForm1.MenuItem3Click(Sender: TObject);
 begin
   AboutForm.ShowModal;
@@ -278,6 +289,17 @@ VK_ESCAPE: Close;
   SkladDrawGrid.RowCount:=High(Sklad)+1; //количество строк
   FormResize(Self);
  end;
+end;
+
+procedure TForm1.LoadSkin(aDir: String);
+begin
+  //загрузка изображения из файла
+   bFloor.Picture.LoadFromFile(aDir+DirectorySeparator+'floor.png');
+   bWall.Picture.LoadFromFile(aDir+DirectorySeparator+'wall.png');
+   bPlayer.Picture.LoadFromFile(aDir+DirectorySeparator+'player.png');
+   bPlace.Picture.LoadFromFile(aDir+DirectorySeparator+'place.png');
+   bBox.Picture.LoadFromFile(aDir+DirectorySeparator+'box.png');
+   bPlacedBox.Picture.LoadFromFile(aDir+DirectorySeparator+'placedbox.png');
 end;
 
 
