@@ -69,7 +69,7 @@ var t : TextFile; //файл уровня
 begin
  Result:=true;
  //проверим наличие файла уровня
- if not FileExistsUTF8(ProgramDirectory+DirectorySeparator+'data'+DirectorySeparator+IntToStr(levnom)+'.xsb') then begin
+ if not FileExists(ProgramDirectory+DirectorySeparator+'data'+DirectorySeparator+IntToStr(levnom)+'.xsb') then begin
   //файл отсутствует - устанавливаем отрицательный результат и выходим
   Result:=false;
   Exit;
@@ -110,7 +110,7 @@ var t : TextFile; //файл уровня
 begin
  Result:=true;
  //проверим наличие файла уровня
- if not FileExistsUTF8(levelfile) then begin
+ if not FileExists(levelfile) then begin
   //файл отсутствует - устанавливаем отрицательный результат и выходим
   Result:=false;
   Exit;
@@ -201,7 +201,7 @@ begin
 Result:=true;
 LevelSolution:='';
 //проверим наличие файла прохождения
-if not FileExistsUTF8(ProgramDirectory+DirectorySeparator+'data'+DirectorySeparator+IntToStr(CurrLevel)+'.sol') then begin
+if not FileExists(ProgramDirectory+DirectorySeparator+'data'+DirectorySeparator+IntToStr(CurrLevel)+'.sol') then begin
  //файл отсутствует - устанавливаем отрицательный результат и выходим
  Result:=false;
  Exit;
@@ -617,4 +617,4 @@ begin
 end;
 
 end.
-
+
