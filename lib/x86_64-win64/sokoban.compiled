@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CONFIG>
-  <Compiler Value="/usr/local/codetyphon/fpc/fpc64/bin/x86_64-linux/fpc" Date="1638901000"/>
-  <Params Value=" -Twin64 -Px86_64 -CpATHLON64 -MObjFPC -Scghi -O1 -gw2 -godwarfsets -gl -WG -l -vewnhibq -Fi/home/vadim/development/pascal/github/lazsokoban/lib/x86_64-win64 -Fu/usr/local/codetyphon/typhon/lcl/units/x86_64-win64/win32 -Fu/usr/local/codetyphon/typhon/lcl/units/x86_64-win64 -Fu/usr/local/codetyphon/typhon/components/BaseEngines/lib/x86_64-win64 -Fu/usr/local/codetyphon/typhon/components/BaseUtils/lib/x86_64-win64 -Fu/usr/local/codetyphon/typhon/packager/units/x86_64-win64 -Fu/home/vadim/development/pascal/github/lazsokoban/ -FU/home/vadim/development/pascal/github/lazsokoban/lib/x86_64-win64/ -FE/home/vadim/development/pascal/github/lazsokoban/ -o/home/vadim/development/pascal/github/lazsokoban/sokoban.exe -dLCL -dadLCL -dLCLwin32 sokoban.ppr"/>
-</CONFIG>

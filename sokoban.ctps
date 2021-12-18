@@ -3,16 +3,26 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="12"/>
+<<<<<<< HEAD:sokoban.ctps
     <BuildModes Active="linux32"/>
+=======
+    <BuildModes Active="Default"/>
+>>>>>>> ae72f7c5ced7b4bbfac8fc8452369204ccb69f8a:sokoban.lps
     <Units Count="21">
       <Unit0>
         <Filename Value="sokoban.ppr"/>
         <IsPartOfProject Value="True"/>
+<<<<<<< HEAD:sokoban.ctps
         <EditorIndex Value="1"/>
         <WindowIndex Value="1"/>
         <CursorPos Y="22"/>
         <UsageCount Value="121"/>
         <Loaded Value="True"/>
+=======
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <UsageCount Value="121"/>
+>>>>>>> ae72f7c5ced7b4bbfac8fc8452369204ccb69f8a:sokoban.lps
       </Unit0>
       <Unit1>
         <Filename Value="umain.pas"/>
@@ -21,9 +31,16 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
+<<<<<<< HEAD:sokoban.ctps
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
         <CursorPos X="3" Y="9"/>
+=======
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="1"/>
+        <TopLine Value="83"/>
+        <CursorPos X="3" Y="91"/>
+>>>>>>> ae72f7c5ced7b4bbfac8fc8452369204ccb69f8a:sokoban.lps
         <UsageCount Value="121"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -46,7 +63,11 @@
         <ComponentName Value="EditorForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+<<<<<<< HEAD:sokoban.ctps
         <EditorIndex Value="2"/>
+=======
+        <EditorIndex Value="1"/>
+>>>>>>> ae72f7c5ced7b4bbfac8fc8452369204ccb69f8a:sokoban.lps
         <WindowIndex Value="1"/>
         <TopLine Value="46"/>
         <CursorPos Y="2"/>
@@ -59,15 +80,24 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="1"/>
+<<<<<<< HEAD:sokoban.ctps
         <TopLine Value="170"/>
         <CursorPos X="6" Y="180"/>
+=======
+        <TopLine Value="44"/>
+        <CursorPos X="63" Y="185"/>
+>>>>>>> ae72f7c5ced7b4bbfac8fc8452369204ccb69f8a:sokoban.lps
         <UsageCount Value="83"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="drawsklad.inc"/>
         <IsPartOfProject Value="True"/>
+<<<<<<< HEAD:sokoban.ctps
         <EditorIndex Value="4"/>
+=======
+        <EditorIndex Value="3"/>
+>>>>>>> ae72f7c5ced7b4bbfac8fc8452369204ccb69f8a:sokoban.lps
         <WindowIndex Value="1"/>
         <CursorPos Y="2"/>
         <UsageCount Value="82"/>
@@ -141,7 +171,10 @@
         <WindowIndex Value="0"/>
         <TopLine Value="40"/>
         <UsageCount Value="6"/>
+<<<<<<< HEAD:sokoban.ctps
         <DefaultSyntaxHighlighter Value="FRM"/>
+=======
+>>>>>>> ae72f7c5ced7b4bbfac8fc8452369204ccb69f8a:sokoban.lps
       </Unit14>
       <Unit15>
         <Filename Value="ueditor.lfm"/>
@@ -150,7 +183,10 @@
         <TopLine Value="759"/>
         <CursorPos X="5" Y="762"/>
         <UsageCount Value="7"/>
+<<<<<<< HEAD:sokoban.ctps
         <DefaultSyntaxHighlighter Value="FRM"/>
+=======
+>>>>>>> ae72f7c5ced7b4bbfac8fc8452369204ccb69f8a:sokoban.lps
       </Unit15>
       <Unit16>
         <Filename Value="ulogger.pas"/>
@@ -195,7 +231,14 @@
         <UsageCount Value="10"/>
       </Unit20>
     </Units>
+<<<<<<< HEAD:sokoban.ctps
     <JumpHistory Count="30" HistoryIndex="29">
+=======
+    <General>
+      <ActiveWindowIndexAtStart Value="1"/>
+    </General>
+    <JumpHistory Count="29" HistoryIndex="28">
+>>>>>>> ae72f7c5ced7b4bbfac8fc8452369204ccb69f8a:sokoban.lps
       <Position1>
         <Filename Value="ueditor.pas"/>
         <Caret Line="147" Column="38" TopLine="136"/>
@@ -261,6 +304,7 @@
         <Caret Line="113" Column="19" TopLine="103"/>
       </Position16>
       <Position17>
+<<<<<<< HEAD:sokoban.ctps
         <Filename Value="umain.pas"/>
       </Position17>
       <Position18>
@@ -315,6 +359,58 @@
         <Filename Value="ugameutils.pas"/>
         <Caret Line="180" Column="6" TopLine="170"/>
       </Position30>
+=======
+        <Filename Value="ueditor.pas"/>
+        <Caret Line="2" TopLine="46"/>
+      </Position17>
+      <Position18>
+        <Filename Value="umain.pas"/>
+      </Position18>
+      <Position19>
+        <Filename Value="umain.pas"/>
+        <Caret Line="69" Column="28" TopLine="97"/>
+      </Position19>
+      <Position20>
+        <Filename Value="umain.pas"/>
+        <Caret Line="70" Column="28" TopLine="70"/>
+      </Position20>
+      <Position21>
+        <Filename Value="umain.pas"/>
+        <Caret Line="72" Column="28" TopLine="72"/>
+      </Position21>
+      <Position22>
+        <Filename Value="umain.pas"/>
+        <Caret Line="203" Column="7" TopLine="200"/>
+      </Position22>
+      <Position23>
+        <Filename Value="umain.pas"/>
+        <Caret Line="205" Column="71" TopLine="201"/>
+      </Position23>
+      <Position24>
+        <Filename Value="umain.pas"/>
+        <Caret Line="208" Column="25" TopLine="201"/>
+      </Position24>
+      <Position25>
+        <Filename Value="umain.pas"/>
+        <Caret Line="92" Column="16" TopLine="81"/>
+      </Position25>
+      <Position26>
+        <Filename Value="umain.pas"/>
+        <Caret Line="295" Column="6" TopLine="293"/>
+      </Position26>
+      <Position27>
+        <Filename Value="umain.pas"/>
+        <Caret Line="60" Column="37" TopLine="51"/>
+      </Position27>
+      <Position28>
+        <Filename Value="umain.pas"/>
+        <Caret Line="302" Column="41" TopLine="287"/>
+      </Position28>
+      <Position29>
+        <Filename Value="umain.pas"/>
+        <Caret Line="204" Column="20" TopLine="197"/>
+      </Position29>
+>>>>>>> ae72f7c5ced7b4bbfac8fc8452369204ccb69f8a:sokoban.lps
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
