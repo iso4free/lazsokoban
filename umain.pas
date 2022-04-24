@@ -89,7 +89,7 @@ begin
   bBox:=TImage.Create(self);
   bPlacedBox:=TImage.Create(self);
 
-  LoadSkin(ProgramDirectory+DirectorySeparator+'data');
+  LoadSkin(ProgramDirectory+DirectorySeparator+'data'+DirectorySeparator+'easter');
   CurrLevel :=0;
   Nextlevel;
   //размеры отображаемого склада установить соответственно размеров уровня
