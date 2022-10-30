@@ -2,7 +2,7 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="12"/>
-    <BuildModes Active="Default"/>
+    <BuildModes Active="Win-x64"/>
     <Units Count="6">
       <Unit0>
         <Filename Value="sokoban.ppr"/>
@@ -14,7 +14,6 @@
       </Unit0>
       <Unit1>
         <Filename Value="umain.pas"/>
-        <FRMtype Value="200"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
@@ -22,14 +21,14 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="76"/>
-        <CursorPos X="81" Y="92"/>
+        <TopLine Value="86"/>
+        <CursorPos X="84" Y="92"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="uabout.pas"/>
-        <FRMtype Value="200"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="AboutForm"/>
         <HasResources Value="True"/>
@@ -40,7 +39,6 @@
       </Unit2>
       <Unit3>
         <Filename Value="ueditor.pas"/>
-        <FRMtype Value="200"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="EditorForm"/>
         <HasResources Value="True"/>
