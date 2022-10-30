@@ -1,14 +1,14 @@
 object AboutForm: TAboutForm
-  Left = 355
+  Left = 356
   Height = 386
-  Top = 179
+  Top = 185
   Width = 490
   BorderStyle = bsDialog
   ClientHeight = 386
   ClientWidth = 490
   OnMouseDown = FormMouseDown
   Position = poScreenCenter
-  LCLVersion = '1.2.6.0'
+  LCLVersion = '7.9'
   object Image1: TImage
     Left = 8
     Height = 96
@@ -428,10 +428,11 @@ object AboutForm: TAboutForm
   end
   object Label1: TLabel
     Left = 10
-    Height = 30
+    Height = 25
     Top = 240
-    Width = 142
-    Caption = 'Socoban v.1.0'
+    Width = 165
+    Caption = 'Sokoban v.1.0'
+    Color = clDefault
     Font.Color = clMaroon
     Font.Height = -21
     Font.Style = [fsBold]
@@ -447,15 +448,15 @@ object AboutForm: TAboutForm
     Font.Color = clBlack
     Font.Style = [fsBold]
     Lines.Strings = (
-      'Игра распространяется по лицензии GPL v2, полный текст лицензии включается в дистрибутив.'
+      'Гра розповсюджується на умовах ліцензії GPL v3, повний текст якої знаходиться у файлі LICENSE.'
       ''
-      'Это игра-головоломка, в которой игрок передвигает ящики по лабиринту, показанному сверху, с целью поставить все ящики на заданные конечные позиции. Только один ящик может быть передвинут за раз, причём герой игры — «кладовщик» — может только толкать ящики, но не тянуть их.'
-      'Есть несколько действий, которые нельзя совершать ни при каких обстоятельствах:'
-      '- нельзя допускать, чтобы два ящика оказались друг рядом с другом у стены (вы никогда их не вытащите оттуда: тянуть ящики нельзя, толкать два ящика — тоже);'
-      '- нельзя задвигать ящик в угол;'
-      '- нельзя сдвигать ящики в квадрат 2x2.'
+      'Це гра-головоломка, де гравець пересовує ящики по лабіринту з видом зверху, з метою поставити всі ящики на задані кінцеві позиції. Лише один ящик може бути пересунутий за один хід, при цьому герой гри — «кладовщик» — може лише штовхати ящики, але не тягнути їх.'
+      'Є декілька дій, які не можна виконувати ні за яких умов:'
+      '- не можна допускати, щоб два ящика опинились один біля одного біля стіни (ви ніколи їх звідти не витягнете: тягнути ящиків не можна, штовхати два ящика — також);'
+      '- не можна засовувати ящик в куток;'
+      '- не можна зсовувати ящики в квадрат 2x2.'
       ''
-      'Управление реализовано с помощью стрелок.'
+      'Керування реалізовано за допомогою клавіш зі стрілками.'
     )
     ParentFont = False
     ReadOnly = True
@@ -467,8 +468,9 @@ object AboutForm: TAboutForm
     Left = 216
     Height = 34
     Top = 239
-    Width = 277
-    Caption = 'Эта игра разработана сайтом lazarus-games.ru'#13#10'как пример к урокам.'
+    Width = 425
+    Caption = 'Ця гра розроблена сайтом https://lazarus-games.blogspot.com/'#13#10'як демонстрація для уроків.'
+    Color = clDefault
     Font.Color = clHighlight
     Font.Style = [fsUnderline]
     ParentColor = False
@@ -963,10 +965,11 @@ object AboutForm: TAboutForm
   end
   object Label3: TLabel
     Left = 10
-    Height = 68
+    Height = 34
     Top = 288
-    Width = 395
-    Caption = 'Кредиты:'#13#10'1. http://ru.wikipedia.org/wiki/Sokoban — Википедия'#13#10'2. http://old.computerra.ru/2007/695/327762/ - Компьютерра Онлайн'#13#10'3. http://www.game-sokoban.ru/ - Сокобан онлайн'
+    Width = 566
+    Caption = 'Кредити:'#13#10'http://www.sokobano.de/wiki/index.php?title=Main_Page - Вікіпедія Сокобана (англ.)'
+    Color = clDefault
     ParentColor = False
     WordWrap = True
     OnMouseDown = FormMouseDown
@@ -980,4 +983,4 @@ object AboutForm: TAboutForm
     ModalResult = 1
     TabOrder = 1
   end
-end
+end

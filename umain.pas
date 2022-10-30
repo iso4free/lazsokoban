@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, Grids, LCLType, Menus, Buttons, ugameutils;
+  Grids, LCLType, Menus, Buttons, ugameutils;
 
 Type
 
@@ -55,6 +55,7 @@ Type
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
   private
+    procedure SetSizes;
     { private declarations }
   public
     procedure LoadSkin(aDir : String);
@@ -64,12 +65,12 @@ Type
 
 var
   Form1: TForm1;
-  bFloor,                        //пол в складе
-  bWall,                         //стена
-  bPlayer,                       //складовщик
+  bFloor,                        //підлога в складі
+  bWall,                         //стіна
+  bPlayer,                       //кладовщик
   bBox,                          //ящик
-  bPlace,                        //место, где нужно поставить ящик
-  bPlacedBox : Timage;           //ящик на месте
+  bPlace,                        //місце, куди потрібно перемістити ящик
+  bPlacedBox : Timage;           //ящик на місці
 
 implementation
 
@@ -81,7 +82,7 @@ uses uabout, ueditor;
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   CanDraw:=false;
-  //динамическое создание компонента
+  //створення і завантаження зображень
   bFloor:=TImage.Create(self);
   bWall:=TImage.Create(self);
   bPlayer:=TImage.Create(self);
@@ -92,12 +93,8 @@ begin
   LoadSkin(ProgramDirectory+DirectorySeparator+'data'+DirectorySeparator+'halloween');
   CurrLevel :=0;
   Nextlevel;
-  //размеры отображаемого склада установить соответственно размеров уровня
-  SkladDrawGrid.ColCount:=High(Sklad[0])+1; //количество колонок
-  SkladDrawGrid.RowCount:=High(Sklad)+1; //количество строк
-  //размеры формы подогнать под размеры уровня
-  Width:=(High(Sklad[0])+1)*SkladDrawGrid.DefaultColWidth+5;
-  Height:=(High(Sklad)+1)*SkladDrawGrid.DefaultRowHeight+Panel1.Height+25;
+  SetSizes;
+  //все завантажено, можна намалювати рівень
   CanDraw:=true;
 end;
 
@@ -113,7 +110,7 @@ var i : Integer;
    simulatedkey: Word;
 begin
  if (LevelSolution='') or (Length(Player.Solution)>0) then Exit;
- BitBtn2.Enabled:=false;  //блокируем кнопку до окончания демки
+ BitBtn2.Enabled:=false;  //блокуємо кнопку до закінчення демки
  for i := 1 to Length(LevelSolution) do begin
   case LevelSolution[i] of
 'l','L': simulatedkey:=VK_LEFT;
@@ -123,16 +120,16 @@ begin
   end;
   FormKeyDown(self,simulatedkey,[]);
   SkladDrawGrid.Repaint;
-  Sleep(200); //задержка 0,2 с
-  Application.ProcessMessages; //чтобы приложение обработало очередь сообщений
+  Sleep(200); //затримка 0,2 с
+  Application.ProcessMessages; //щоб не підвисав інтерфейс
  end;
- BitBtn2.Enabled:=true; //снимаем блокировку кнопки
+ BitBtn2.Enabled:=true; //знімаємо блокування кнопки
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
 var c : Char;
 begin
-  //отмена последнего хода
+  //відміна останнього ходу
  if Player.Solution='' then Exit;
  c:=Player.Solution[Length(Player.Solution)];
  case c of
@@ -164,22 +161,22 @@ procedure TForm1.EditorMenuItemClick(Sender: TObject);
 begin
    LoadLevel(CurrLevel, Sklad);
    EditorForm.LevelNumSpinEdit.Value:=CurrLevel;
-   EditorForm.SkladDrawGrid.ColCount:=High(Sklad[0])+1; //количество колонок
-   EditorForm.SkladDrawGrid.RowCount:=High(Sklad)+1; //количество строк
+   EditorForm.SkladDrawGrid.ColCount:=High(Sklad[0])+1; //кількість стовбців
+   EditorForm.SkladDrawGrid.RowCount:=High(Sklad)+1; //кількість рядків
    EditorForm.WidthSpinEdit.Value:=High(Sklad[0])+1;
    EditorForm.HeightSpinEdit.Value:=High(Sklad)+1;
-   //размеры формы подогнать под размеры уровня
+   //розміри форми підігнати під розміри рівня
    EditorForm.Width:=(EditorForm.SkladDrawGrid.ColCount)*EditorForm.SkladDrawGrid.DefaultColWidth+EditorForm.Panel1.Width+5;
    EditorForm.Height:=(EditorForm.SkladDrawGrid.RowCount)*EditorForm.SkladDrawGrid.DefaultRowHeight+5;
-   CurrSymbol:=' ';//символ по умолчанию - пустое место
-   EditorForm.SpeedButton2.Down:=true;//делаем нажатой соответствующую кнопку
-   EditorForm.ShowModal;//показываем редактор
-   SkladDrawGrid.Repaint;//после закрытия редактора перерисовываем уровень
+   CurrSymbol:=' ';//символ по замовчуванню - пробіл
+   EditorForm.SpeedButton2.Down:=true;//натискаємо відповідну кнопку
+   EditorForm.ShowModal;//показувємо редактор
+   SkladDrawGrid.Repaint;//після закриття редактора перемальовуємо рівень
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
 begin
- //освобождаем память
+ //звільняємо пам'ять
   bPlacedBox.Free;
   bBox.Free;
   bPlace.Free;
@@ -197,7 +194,7 @@ end;
 procedure TForm1.ChangeThemeMenuItemClick(Sender: TObject);
 var SkinPath : String;
 begin
- //смена игровой темы оформления - выбор соответствующей папки с ассетами
+ //зміна скіна - вибір відповідної папки з асетами
  SelectDirectoryDialog1.InitialDir:=ExtractFileDir(Application.ExeName);
  if SelectDirectoryDialog1.Execute then begin
   SkinPath:=SelectDirectoryDialog1.FileName;
@@ -214,25 +211,15 @@ procedure TForm1.MenuItem4Click(Sender: TObject);
 begin
   CurrLevel:=0;
   Nextlevel;
-  Caption:='Socoban: level '+IntToStr(CurrLevel);
-  //размеры отображаемого склада установить соответственно размеров уровня
-  SkladDrawGrid.ColCount:=High(Sklad[0])+1; //количество колонок
-  SkladDrawGrid.RowCount:=High(Sklad)+1; //количество строк
-  //размеры формы подогнать под размеры уровня
-  Width:=(High(Sklad[0])+1)*SkladDrawGrid.DefaultColWidth+5;
-  Height:=(High(Sklad)+1)*SkladDrawGrid.DefaultRowHeight+Panel1.Height+25;
+  Caption:='Sokoban: level '+IntToStr(CurrLevel);
+  SetSizes;
 end;
 
 procedure TForm1.MenuItem6Click(Sender: TObject);
 begin
   NextLevel;
-  Caption:='Socoban: level '+IntToStr(CurrLevel);
-  //размеры отображаемого склада установить соответственно размеров уровня
-  SkladDrawGrid.ColCount:=High(Sklad[0])+1; //количество колонок
-  SkladDrawGrid.RowCount:=High(Sklad)+1; //количество строк
-  //размеры формы подогнать под размеры уровня
-  Width:=(High(Sklad[0])+1)*SkladDrawGrid.DefaultColWidth+5;
-  Height:=(High(Sklad)+1)*SkladDrawGrid.DefaultRowHeight+Panel1.Height+25;
+  Caption:='Sokoban: level '+IntToStr(CurrLevel);
+  SetSizes;
   FormResize(Self);
 end;
 
@@ -245,16 +232,11 @@ procedure TForm1.MenuItem9Click(Sender: TObject);
 begin
   if OpenDialog1.Execute then begin
    if not LoadLevel(OpenDialog1.FileName,Sklad) then begin
-    ShowMessage('Не удалось загрузить уровень!');
-    MenuItem4Click(Self); //начинаем игру с первого уровня
+    ShowMessage('Не вдалось завантажити рівень!');
+    MenuItem4Click(Self); //починаємо гру з першого рівня
    end;
-   Caption:='Socoban: level '+OpenDialog1.FileName;
-   //размеры отображаемого склада установить соответственно размеров уровня
-   SkladDrawGrid.ColCount:=High(Sklad[0])+1; //количество колонок
-   SkladDrawGrid.RowCount:=High(Sklad)+1; //количество строк
-   //размеры формы подогнать под размеры уровня
-   Width:=(High(Sklad[0])+1)*SkladDrawGrid.DefaultColWidth+5;
-   Height:=(High(Sklad)+1)*SkladDrawGrid.DefaultRowHeight+Panel1.Height+25;
+   Caption:='Sokoban: level '+OpenDialog1.FileName;
+   SetSizes;
   end;
 end;
 
@@ -274,26 +256,32 @@ VK_UP    : MoveUp;
 VK_DOWN  : MoveDown;
 VK_ESCAPE: Close;
  end;
- Caption:='Socoban: level '+IntToStr(CurrLevel);
+ Caption:='Sokoban: level '+IntToStr(CurrLevel);
  SkladDrawGrid.Repaint;
  if CheckWin then begin
-  ShowMessage('Поздравляем! Вы прошли уровень! Ваш результат: '+IntToStr(Length(Player.Solution))+' ходов');
+  ShowMessage('Вітаємо! Ви пройшли рівень! Ваш результат: '+IntToStr(Length(Player.Solution))+' ходів');
   SaveSolution;
   Nextlevel;
-  Caption:='Socoban: level '+IntToStr(CurrLevel);
-  //размеры формы подогнать под размеры уровня
-  Width:=(High(Sklad[0])+1)*SkladDrawGrid.DefaultColWidth+5;
-  Height:=(High(Sklad)+1)*SkladDrawGrid.DefaultRowHeight+Panel1.Height+25;
-  //размеры отображаемого склада установить соответственно размеров уровня
-  SkladDrawGrid.ColCount:=High(Sklad[0])+1; //количество колонок
-  SkladDrawGrid.RowCount:=High(Sklad)+1; //количество строк
+  Caption:='Sokoban: level '+IntToStr(CurrLevel);
+  SetSizes;
   FormResize(Self);
  end;
 end;
 
+procedure TForm1.SetSizes;
+//встановити розміри рівня і форми
+begin
+  //розміри видимого складу встановити відповідно розмірів рівня
+  SkladDrawGrid.ColCount:=High(Sklad[0])+1; //кількість стовбців
+  SkladDrawGrid.RowCount:=High(Sklad)+1; //кількість рядків
+  //розміри форми підігнати під розміри рівня
+  Width:=(High(Sklad[0])+1)*SkladDrawGrid.DefaultColWidth+10;
+  Height:=(High(Sklad)+1)*SkladDrawGrid.DefaultRowHeight+Panel1.Height+30;
+end;
+
 procedure TForm1.LoadSkin(aDir: String);
 begin
-  //загрузка изображения из файла
+  //завантаження ассетівв з файлів
    bFloor.Picture.LoadFromFile(aDir+DirectorySeparator+'floor.png');
    bWall.Picture.LoadFromFile(aDir+DirectorySeparator+'wall.png');
    bPlayer.Picture.LoadFromFile(aDir+DirectorySeparator+'player.png');

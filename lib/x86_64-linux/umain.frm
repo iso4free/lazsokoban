@@ -4,7 +4,7 @@ object Form1: TForm1
   Top = 142
   Width = 432
   ActiveControl = SkladDrawGrid
-  Caption = 'Socoban'
+  Caption = 'Sokoban'
   ClientHeight = 405
   ClientWidth = 432
   KeyPreview = True
@@ -21,17 +21,17 @@ object Form1: TForm1
     Top = 347
     Width = 432
     Align = alBottom
-    ClientHeight = 54
-    ClientWidth = 428
+    ClientHeight = 58
+    ClientWidth = 432
     TabOrder = 0
     object BitBtn1: TBitBtn
-      Left = 338
-      Height = 52
+      Left = 348
+      Height = 56
       Top = 1
-      Width = 89
+      Width = 83
       Align = alRight
       AutoSize = True
-      Caption = 'Выход'
+      Caption = 'Вихід'
       Glyph.Data = {
         36100000424D3610000000000000360000002800000020000000200000000100
         2000000000000010000064000000640000000000000000000000171A1F101211
@@ -168,8 +168,8 @@ object Form1: TForm1
       TabOrder = 1
     end
     object BitBtn2: TBitBtn
-      Left = 258
-      Height = 52
+      Left = 268
+      Height = 56
       Top = 1
       Width = 80
       Align = alRight
@@ -312,7 +312,7 @@ object Form1: TForm1
     end
     object Button1: TBitBtn
       Left = 1
-      Height = 52
+      Height = 56
       Top = 1
       Width = 99
       Align = alLeft
@@ -456,12 +456,12 @@ object Form1: TForm1
     end
     object Button2: TBitBtn
       Left = 100
-      Height = 52
+      Height = 56
       Top = 1
-      Width = 102
+      Width = 120
       Align = alLeft
       AutoSize = True
-      Caption = 'Вернуть'
+      Caption = 'Повернути'
       Glyph.Data = {
         36100000424D3610000000000000360000002800000020000000200000000100
         2000000000000010000064000000640000000000000000000000000000000000
@@ -620,39 +620,39 @@ object Form1: TForm1
     Left = 242
     Top = 23
     object MenuItem1: TMenuItem
-      Caption = 'Игра'
+      Caption = 'Гра'
       object MenuItem4: TMenuItem
-        Caption = 'Сначала'
+        Caption = 'Спочатку'
         OnClick = MenuItem4Click
       end
       object MenuItem5: TMenuItem
-        Caption = 'Рестарт уровня'
+        Caption = 'Рестарт рівня'
         OnClick = Button1Click
       end
       object MenuItem6: TMenuItem
-        Caption = 'Следующий уровень'
+        Caption = 'Наступний рівень'
         OnClick = MenuItem6Click
       end
       object MenuItem9: TMenuItem
-        Caption = 'Уровень из файла...'
+        Caption = 'Рівень з файла'
         OnClick = MenuItem9Click
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object ChangeThemeMenuItem: TMenuItem
-        Caption = 'Выбрать тему'
+        Caption = 'Вибрати скін'
         OnClick = ChangeThemeMenuItemClick
       end
       object MenuItem7: TMenuItem
         Caption = '-'
       end
       object MenuItem2: TMenuItem
-        Caption = 'Сохранить игру'
+        Caption = 'Зберегти гру'
         Visible = False
       end
       object MenuItem10: TMenuItem
-        Caption = 'Восстановить игру'
+        Caption = 'Відновити гру'
         Visible = False
       end
       object MenuItem11: TMenuItem
@@ -670,16 +670,16 @@ object Form1: TForm1
       OnClick = EditorMenuItemClick
     end
     object MenuItem12: TMenuItem
-      Caption = 'Рекорды'
+      Caption = 'Рекорди'
       Visible = False
     end
     object MenuItem3: TMenuItem
-      Caption = 'О программе...'
+      Caption = 'Про...'
       OnClick = MenuItem3Click
     end
   end
   object OpenDialog1: TOpenDialog
-    Title = 'Выберите файл уровня'
+    Title = 'Оберіть файл рівня'
     Left = 339
     Top = 31
   end

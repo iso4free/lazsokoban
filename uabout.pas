@@ -46,7 +46,7 @@ end;
 
 procedure TAboutForm.Label2Click(Sender: TObject);
 begin
-  OpenURL('http://lazarus-games.ru/');
+  OpenURL('https://lazarus-games.blogspot.com/');
 end;
 
 end.

@@ -1,20 +1,20 @@
   if not CanDraw then Exit;
   case Sklad[aRow,aCol] of
-' ':SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bFloor.Picture.Bitmap);//пол
-'#':SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bWall.Picture.Bitmap);//стена
-'.':begin //цель
-     SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bFloor.Picture.Bitmap);//сначала рисуем пол
-     SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bPlace.Picture.Bitmap);//затем цель
+' ':SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bFloor.Picture.Bitmap);//підлога
+'#':SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bWall.Picture.Bitmap);//стіна
+'.':begin //ціль
+     SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bFloor.Picture.Bitmap);//спочатку малюємо підлогу
+     SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bPlace.Picture.Bitmap);//тоді ціль
     end;
-'@':begin //складовщик
-     SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bFloor.Picture.Bitmap);//сначала рисуем пол
-     SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bPlayer.Picture.Bitmap);//затем складовщика
+'@':begin //кладовщик
+     SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bFloor.Picture.Bitmap);//спочатку малюємо підлогу
+     SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bPlayer.Picture.Bitmap);//тоді кладовщика
     end;
-'+':begin //складовщик на цели
-     SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bFloor.Picture.Bitmap);//сначала рисуем пол
-     SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bPlace.Picture.Bitmap);//после этого цель
-     SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bPlayer.Picture.Bitmap);//и только затем складовщика
+'+':begin //ккладовщик на цілі
+     SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bFloor.Picture.Bitmap);//спочатку підлога
+     SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bPlace.Picture.Bitmap);//тоді ціль
+     SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bPlayer.Picture.Bitmap);//і лише тоді кладовщика
     end;
 '$':SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bBox.Picture.Bitmap);//ящик
-'*':SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bPlacedBox.Picture.Bitmap);//ящик на цели
+'*':SkladDrawGrid.Canvas.Draw(aRect.Left,aRect.Top,bPlacedBox.Picture.Bitmap);//ящик на цілі
   end;

@@ -7,7 +7,7 @@ object EditorForm: TEditorForm
   ClientHeight = 421
   ClientWidth = 574
   Position = poScreenCenter
-  LCLVersion = '7.6'
+  LCLVersion = '7.9'
   object Panel1: TPanel
     Left = 0
     Height = 421
@@ -22,14 +22,14 @@ object EditorForm: TEditorForm
     TabOrder = 0
     object GroupBox1: TGroupBox
       Left = 4
-      Height = 99
+      Height = 101
       Top = 4
       Width = 144
       Align = alTop
       AutoSize = True
-      Caption = '"Кирпичи"'
+      Caption = '"Цеглинки"'
       ClientHeight = 82
-      ClientWidth = 142
+      ClientWidth = 140
       TabOrder = 0
       object SpeedButton1: TSpeedButton
         Left = 1
@@ -780,47 +780,47 @@ object EditorForm: TEditorForm
     object OpenBitBtn: TBitBtn
       Left = 4
       Height = 30
-      Top = 103
+      Top = 105
       Width = 144
       Align = alTop
-      Caption = 'Открыть...'
+      Caption = 'Відкрити...'
       OnClick = OpenBitBtnClick
       TabOrder = 5
     end
     object ClearBitBtn: TBitBtn
       Left = 4
       Height = 30
-      Top = 133
+      Top = 135
       Width = 144
       Align = alTop
-      Caption = 'Очистить уровень'
+      Caption = 'Очистити рівень'
       OnClick = ClearBitBtnClick
       TabOrder = 1
     end
     object SaveBitBtn: TBitBtn
       Left = 4
       Height = 30
-      Top = 163
+      Top = 165
       Width = 144
       Align = alTop
-      Caption = 'Сохранить'
+      Caption = 'Зберегти'
       OnClick = SaveBitBtnClick
       TabOrder = 2
     end
     object SaveAsBitBtn: TBitBtn
       Left = 4
       Height = 30
-      Top = 193
+      Top = 195
       Width = 144
       Align = alTop
-      Caption = 'Сохранить как...'
+      Caption = 'Зберегти як...'
       OnClick = SaveAsBitBtnClick
       TabOrder = 3
     end
     object GroupBox2: TPanel
       Left = 4
       Height = 105
-      Top = 223
+      Top = 225
       Width = 144
       Align = alTop
       AutoSize = True
@@ -832,9 +832,9 @@ object EditorForm: TEditorForm
         AnchorSideTop.Control = WidthSpinEdit
         AnchorSideTop.Side = asrCenter
         Left = 4
-        Height = 16
+        Height = 17
         Top = 12
-        Width = 52
+        Width = 57
         Caption = 'Ширина'
       end
       object WidthSpinEdit: TSpinEdit
@@ -877,11 +877,11 @@ object EditorForm: TEditorForm
         AnchorSideTop.Control = HeightSpinEdit
         AnchorSideTop.Side = asrCenter
         Left = 3
-        Height = 16
+        Height = 17
         Top = 44
-        Width = 46
+        Width = 49
         BorderSpacing.Top = 5
-        Caption = 'Высота'
+        Caption = 'Висота'
       end
       object LevelNumSpinEdit: TSpinEdit
         AnchorSideLeft.Control = WidthSpinEdit
@@ -904,10 +904,10 @@ object EditorForm: TEditorForm
         AnchorSideTop.Control = LevelNumSpinEdit
         AnchorSideTop.Side = asrCenter
         Left = 2
-        Height = 16
+        Height = 17
         Top = 76
-        Width = 63
-        Caption = '№ уровня'
+        Width = 55
+        Caption = '№ рівня'
       end
     end
     object CloseBitBtn: TBitBtn

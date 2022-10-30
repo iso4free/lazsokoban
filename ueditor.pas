@@ -55,7 +55,7 @@ type
 
 var
   EditorForm: TEditorForm;
-  CellData : Char; //символ для установки в матрицу уровня
+  CellData : Char; //символ для встановлення в матрицю рівня
 
 implementation
  uses umain, ulogger;
@@ -66,10 +66,10 @@ implementation
 procedure TEditorForm.ClearBitBtnClick(Sender: TObject);
 var x,y : Integer;
 begin
-  //заполняем динамический массив пробелами (символ пустого места)
+  //заповнюємо динамічний масив пробілами (підлога)
  for x:=0 to High(Sklad) do
   for y:=0 to High(Sklad[x]) do Sklad[x,y]:=' ';
- SkladDrawGrid.Repaint; //перерисовываем игровое поле
+ SkladDrawGrid.Repaint; //перемальовуємо ігрове поле
 end;
 
 procedure TEditorForm.CloseBitBtnClick(Sender: TObject);
@@ -81,11 +81,11 @@ procedure TEditorForm.OpenBitBtnClick(Sender: TObject);
 begin
   if OpenDialog1.Execute then begin
     LoadLevel(OpenDialog1.FileName,Sklad);
-    SkladDrawGrid.ColCount:=High(Sklad[0])+1; //количество колонок
-    SkladDrawGrid.RowCount:=High(Sklad)+1; //количество строк
+    SkladDrawGrid.ColCount:=High(Sklad[0])+1; //стовбці
+    SkladDrawGrid.RowCount:=High(Sklad)+1; //рядки
     WidthSpinEdit.Value:=EditorForm.SkladDrawGrid.ColCount-1;
     HeightSpinEdit.Value:=EditorForm.SkladDrawGrid.RowCount-1;
-    //размеры формы подогнать под размеры уровня
+    //розміри форми підігнати під розміри рівня
     Width:=(High(Sklad[0])+1)*EditorForm.SkladDrawGrid.DefaultColWidth+EditorForm.Panel1.Width+5;
     Height:=(High(Sklad)+1)*EditorForm.SkladDrawGrid.DefaultRowHeight+5;
   end;
@@ -141,15 +141,15 @@ begin
  CanDraw:=false;
  Case (Sender as TSpinEdit).Tag of
   1:ChangeMatrixWidth((Sender as TSpinEdit).Value); //ширина
-  2:ChangeMatrixHeight((Sender as TSpinEdit).Value); //высота
+  2:ChangeMatrixHeight((Sender as TSpinEdit).Value); //висота
  end;
- SkladDrawGrid.ColCount:=High(Sklad[0])+1; //количество колонок
- SkladDrawGrid.RowCount:=High(Sklad)+1; //количество строк
- //размеры формы подогнать под размеры уровня
+ SkladDrawGrid.ColCount:=High(Sklad[0])+1; //стовбці
+ SkladDrawGrid.RowCount:=High(Sklad)+1; //рядки
+ //розміри форми підігнати під розміри рівня
  Width:=SkladDrawGrid.ColCount*SkladDrawGrid.DefaultColWidth+Panel1.Width+5;
  Height:=SkladDrawGrid.RowCount*SkladDrawGrid.DefaultRowHeight+5;
  CanDraw:=true;
- SkladDrawGrid.Repaint;//перерисовываем поле редактора
+ SkladDrawGrid.Repaint;//перемальовуємо поле редактора
 end;
 
 end.
