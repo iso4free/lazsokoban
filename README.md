@@ -14,6 +14,14 @@
 - [+] підтримка скінів
 - [-] підтримка наборів рівнів (в розробці)
 
+Підтримувані платформи:
+* Windows i386
+* Windows x64
+* Linux i386
+* Linux x64
+* Haiku OS x64
+* AmigaOS та похідні (збірка бінарника не моя) - можна скачати на [os4depot](http://www.os4depot.net/?function=showfile&file=game/puzzle/lazsokoban.lha)
+
 DEV.LOG
 =
 
@@ -44,3 +52,6 @@ svn checkout http://lazsokoban.googlecode.com/svn/trunk/ lazsokoban-read-only
 30.10.2022
 + Додано скін "Halloween"
 * Документацію перекладено на українську мову
+15.05.2023
+* Зроблено збірки для Haiku OS x64 та Linux i386, оновлено архів з бінарниками в релізі
+* Проект перенесено з CT в Lazarus
