@@ -34,7 +34,7 @@ var
 
 implementation
 
-{$R *.frm}
+{$R *.lfm}
 
 { TAboutForm }
 

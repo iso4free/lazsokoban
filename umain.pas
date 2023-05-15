@@ -75,7 +75,7 @@ var
 implementation
 
 uses uabout, ueditor;
-{$R *.frm}
+{$R *.lfm}
 
 { TForm1 }
 

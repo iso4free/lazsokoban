@@ -59,7 +59,7 @@ var
 
 implementation
  uses umain, ulogger;
-{$R *.frm}
+{$R *.lfm}
 
 { TEditorForm }
 
