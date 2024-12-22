@@ -1,9 +1,10 @@
-
-lib/*.*
-sokoban.log
+sokoban
+sokoban-x86_64-linux
+**/lib/
+**/backup/
 *.compiled
 *.o
 *.ppu
-sokoban
-sokoban-x86_64-linux
 *.log
+*.res
+*.lps
