@@ -8,3 +8,4 @@ sokoban-x86_64-linux
 *.log
 *.res
 *.lps
+*.dbg

@@ -55,3 +55,5 @@ svn checkout http://lazsokoban.googlecode.com/svn/trunk/ lazsokoban-read-only
 15.05.2023
 * Зроблено збірки для Haiku OS x64 та Linux i386, оновлено архів з бінарниками в релізі
 * Проект перенесено з CT в Lazarus
+25.12.2024
+* Зроблено рефакторинг коду, дрібні правки, налаштування збірки під різні платформи

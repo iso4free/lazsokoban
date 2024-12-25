@@ -7,7 +7,6 @@ object EditorForm: TEditorForm
   ClientHeight = 421
   ClientWidth = 574
   Position = poScreenCenter
-  LCLVersion = '2.3.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 421
@@ -31,7 +30,7 @@ object EditorForm: TEditorForm
       ClientHeight = 82
       ClientWidth = 142
       TabOrder = 0
-      object SpeedButton1: TSpeedButton
+      object sbBox: TSpeedButton
         Left = 1
         Height = 40
         Hint = '$'
@@ -156,9 +155,9 @@ object EditorForm: TEditorForm
           5977455F83506A8E0000
         }
         GroupIndex = 1
-        OnClick = SpeedButton1Click
+        OnClick = sbBoxClick
       end
-      object SpeedButton2: TSpeedButton
+      object sbFloor: TSpeedButton
         Left = 41
         Height = 38
         Hint = ' '
@@ -282,9 +281,9 @@ object EditorForm: TEditorForm
           FF6DA8FF6DA8FF6D0000
         }
         GroupIndex = 2
-        OnClick = SpeedButton1Click
+        OnClick = sbBoxClick
       end
-      object SpeedButton3: TSpeedButton
+      object sbPlacedBox: TSpeedButton
         Left = 1
         Height = 38
         Hint = '*'
@@ -408,9 +407,9 @@ object EditorForm: TEditorForm
           2BA51E30B3293EB70000
         }
         GroupIndex = 4
-        OnClick = SpeedButton1Click
+        OnClick = sbBoxClick
       end
-      object SpeedButton4: TSpeedButton
+      object sbCharacter: TSpeedButton
         Left = 41
         Height = 38
         Hint = '@'
@@ -533,9 +532,9 @@ object EditorForm: TEditorForm
           FF6CA8FF6DAEFF6D0000
         }
         GroupIndex = 5
-        OnClick = SpeedButton1Click
+        OnClick = sbBoxClick
       end
-      object SpeedButton5: TSpeedButton
+      object sbWall: TSpeedButton
         Left = 81
         Height = 38
         Hint = '#'
@@ -658,9 +657,9 @@ object EditorForm: TEditorForm
           75966E7EA27484A80000
         }
         GroupIndex = 3
-        OnClick = SpeedButton1Click
+        OnClick = sbBoxClick
       end
-      object SpeedButton6: TSpeedButton
+      object sbPlace: TSpeedButton
         Left = 81
         Height = 40
         Hint = '.'
@@ -774,7 +773,7 @@ object EditorForm: TEditorForm
           FF00FFFFFF00FFFFFF00
         }
         GroupIndex = 6
-        OnClick = SpeedButton1Click
+        OnClick = sbBoxClick
       end
     end
     object OpenBitBtn: TBitBtn
@@ -879,7 +878,7 @@ object EditorForm: TEditorForm
         Left = 3
         Height = 16
         Top = 46
-        Width = 44
+        Width = 43
         BorderSpacing.Top = 5
         Caption = 'Висота'
       end

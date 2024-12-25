@@ -1,4 +1,4 @@
-object Form1: TForm1
+object frmMain: TfrmMain
   Left = 470
   Height = 381
   Top = 142
@@ -14,7 +14,6 @@ object Form1: TForm1
   OnKeyDown = FormKeyDown
   OnResize = FormResize
   Position = poScreenCenter
-  LCLVersion = '2.3.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 58
@@ -24,11 +23,11 @@ object Form1: TForm1
     ClientHeight = 58
     ClientWidth = 432
     TabOrder = 0
-    object BitBtn1: TBitBtn
-      Left = 346
+    object bbtnExit: TBitBtn
+      Left = 347
       Height = 56
       Top = 1
-      Width = 85
+      Width = 84
       Align = alRight
       AutoSize = True
       Caption = 'Вихід'
@@ -167,11 +166,11 @@ object Form1: TForm1
       OnClick = MenuItem8Click
       TabOrder = 1
     end
-    object BitBtn2: TBitBtn
-      Left = 261
+    object bbtnDemo: TBitBtn
+      Left = 263
       Height = 56
       Top = 1
-      Width = 85
+      Width = 84
       Align = alRight
       AutoSize = True
       Caption = 'Демо'
@@ -307,10 +306,10 @@ object Form1: TForm1
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
-      OnClick = BitBtn2Click
+      OnClick = bbtnDemoClick
       TabOrder = 2
     end
-    object Button1: TBitBtn
+    object bbtnRestart: TBitBtn
       Left = 1
       Height = 56
       Top = 1
@@ -450,11 +449,11 @@ object Form1: TForm1
         00FF32AD00FF37AC00FF3EA200FF3E9B04FF3F9511FF3A990FFF39A900FF2EA8
         00FF2EAB00FF33AA00FF3E9F00FF4EA20EFF5A9E15FF508F09FF
       }
-      OnClick = Button1Click
+      OnClick = bbtnRestartClick
       TabOrder = 0
       TabStop = False
     end
-    object Button2: TBitBtn
+    object bbtnUndo: TBitBtn
       Left = 99
       Height = 56
       Top = 1
@@ -594,7 +593,7 @@ object Form1: TForm1
         76DCEFA476DCEFA476DCEFA476DCEFA476DCEFA476DCEFA476DCEFA476DCEFA4
         75DDEFA576D3EFA97CA2EFAD8338000000000000000000000000
       }
-      OnClick = Button2Click
+      OnClick = bbtnUndoClick
       TabOrder = 3
     end
   end
@@ -627,7 +626,7 @@ object Form1: TForm1
       end
       object MenuItem5: TMenuItem
         Caption = 'Рестарт рівня'
-        OnClick = Button1Click
+        OnClick = bbtnRestartClick
       end
       object MenuItem6: TMenuItem
         Caption = 'Наступний рівень'
@@ -660,7 +659,7 @@ object Form1: TForm1
         Visible = False
       end
       object MenuItem8: TMenuItem
-        Caption = 'Выход'
+        Caption = 'Вийти'
         ShortCut = 27
         OnClick = MenuItem8Click
       end

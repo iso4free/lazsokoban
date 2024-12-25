@@ -28,12 +28,12 @@ type
     SaveDialog1: TSaveDialog;
     SkladDrawGrid: TDrawGrid;
     Panel1: TPanel;
-    SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
-    SpeedButton4: TSpeedButton;
-    SpeedButton5: TSpeedButton;
-    SpeedButton6: TSpeedButton;
+    sbBox: TSpeedButton;
+    sbFloor: TSpeedButton;
+    sbPlacedBox: TSpeedButton;
+    sbCharacter: TSpeedButton;
+    sbWall: TSpeedButton;
+    sbPlace: TSpeedButton;
     LevelNumSpinEdit: TSpinEdit;
     WidthSpinEdit: TSpinEdit;
     procedure ClearBitBtnClick(Sender: TObject);
@@ -41,11 +41,11 @@ type
     procedure OpenBitBtnClick(Sender: TObject);
     procedure SaveAsBitBtnClick(Sender: TObject);
     procedure SaveBitBtnClick(Sender: TObject);
-    procedure SkladDrawGridDrawCell(Sender: TObject; aCol, aRow: Integer;
+    procedure SkladDrawGridDrawCell(Sender: TObject; aCol, aRow: integer;
       aRect: TRect; aState: TGridDrawState);
-    procedure SkladDrawGridSelectCell(Sender: TObject; aCol, aRow: Integer;
-      var CanSelect: Boolean);
-    procedure SpeedButton1Click(Sender: TObject);
+    procedure SkladDrawGridSelectCell(Sender: TObject; aCol, aRow: integer;
+      var CanSelect: boolean);
+    procedure sbBoxClick(Sender: TObject);
     procedure WidthSpinEditChange(Sender: TObject);
   private
     { private declarations }
@@ -55,21 +55,23 @@ type
 
 var
   EditorForm: TEditorForm;
-  CellData : Char; //символ для встановлення в матрицю рівня
+  CellData: char; //символ для встановлення в матрицю рівня
 
 implementation
- uses umain, ulogger;
-{$R *.lfm}
 
-{ TEditorForm }
+uses umain, ulogger;
+  {$R *.lfm}
+
+  { TEditorForm }
 
 procedure TEditorForm.ClearBitBtnClick(Sender: TObject);
-var x,y : Integer;
+var
+  x, y: integer;
 begin
   //заповнюємо динамічний масив пробілами (підлога)
- for x:=0 to High(Sklad) do
-  for y:=0 to High(Sklad[x]) do Sklad[x,y]:=' ';
- SkladDrawGrid.Repaint; //перемальовуємо ігрове поле
+  for x := 0 to High(Sklad) do
+    for y := 0 to High(Sklad[x]) do Sklad[x, y] := ' ';
+  SkladDrawGrid.Repaint; //перемальовуємо ігрове поле
 end;
 
 procedure TEditorForm.CloseBitBtnClick(Sender: TObject);
@@ -79,78 +81,85 @@ end;
 
 procedure TEditorForm.OpenBitBtnClick(Sender: TObject);
 begin
-  if OpenDialog1.Execute then begin
-    LoadLevel(OpenDialog1.FileName,Sklad);
-    SkladDrawGrid.ColCount:=High(Sklad[0])+1; //стовбці
-    SkladDrawGrid.RowCount:=High(Sklad)+1; //рядки
-    WidthSpinEdit.Value:=EditorForm.SkladDrawGrid.ColCount-1;
-    HeightSpinEdit.Value:=EditorForm.SkladDrawGrid.RowCount-1;
+  if OpenDialog1.Execute then
+  begin
+    LoadLevel(OpenDialog1.FileName, Sklad);
+    SkladDrawGrid.ColCount := High(Sklad[0]) + 1; //стовбці
+    SkladDrawGrid.RowCount := High(Sklad) + 1; //рядки
+    WidthSpinEdit.Value := EditorForm.SkladDrawGrid.ColCount - 1;
+    HeightSpinEdit.Value := EditorForm.SkladDrawGrid.RowCount - 1;
     //розміри форми підігнати під розміри рівня
-    Width:=(High(Sklad[0])+1)*EditorForm.SkladDrawGrid.DefaultColWidth+EditorForm.Panel1.Width+5;
-    Height:=(High(Sklad)+1)*EditorForm.SkladDrawGrid.DefaultRowHeight+5;
+    Width := (High(Sklad[0]) + 1) * EditorForm.SkladDrawGrid.DefaultColWidth +
+      EditorForm.Panel1.Width + 5;
+    Height := (High(Sklad) + 1) * EditorForm.SkladDrawGrid.DefaultRowHeight + 5;
   end;
 end;
 
 procedure TEditorForm.SaveAsBitBtnClick(Sender: TObject);
 begin
-  if SaveDialog1.Execute then begin
+  if SaveDialog1.Execute then
+  begin
     SaveLevel(SaveDialog1.FileName);
   end;
 end;
 
 procedure TEditorForm.SaveBitBtnClick(Sender: TObject);
 begin
-  SaveLevel(ProgramDirectory+DirectorySeparator+'data'+DirectorySeparator+LevelNumSpinEdit.Text+'.xsb');
+  SaveLevel(ProgramDirectory + DirectorySeparator + 'data' + DirectorySeparator +
+    LevelNumSpinEdit.Text + '.xsb');
 end;
 
-procedure TEditorForm.SkladDrawGridDrawCell(Sender: TObject; aCol, aRow: Integer;
-  aRect: TRect; aState: TGridDrawState);
+procedure TEditorForm.SkladDrawGridDrawCell(Sender: TObject;
+  aCol, aRow: integer; aRect: TRect; aState: TGridDrawState);
 begin
- {$I drawsklad.inc}
+  {$I drawsklad.inc}
 end;
 
-procedure TEditorForm.SkladDrawGridSelectCell(Sender: TObject; aCol,
-  aRow: Integer; var CanSelect: Boolean);
+procedure TEditorForm.SkladDrawGridSelectCell(Sender: TObject;
+  aCol, aRow: integer; var CanSelect: boolean);
 begin
-  if CurrSymbol='' then Exit;
-  if CurrSymbol='@' then begin
-    Player.x:=aCol;
-    Player.y:=aRow;
-    if  Sklad[aRow,aCol]='.' then Sklad[aRow,aCol]:='+'
-     else Sklad[aRow,aCol]:=CurrSymbol[1];
-  end else Sklad[aRow,aCol]:=CurrSymbol[1];
+  if CurrSymbol = '' then Exit;
+  if CurrSymbol = '@' then
+  begin
+    Player.x := aCol;
+    Player.y := aRow;
+    if Sklad[aRow, aCol] = '.' then Sklad[aRow, aCol] := '+'
+    else
+      Sklad[aRow, aCol] := CurrSymbol[1];
+  end
+  else
+    Sklad[aRow, aCol] := CurrSymbol[1];
   SkladDrawGrid.Repaint;
 end;
 
-procedure TEditorForm.SpeedButton1Click(Sender: TObject);
+procedure TEditorForm.sbBoxClick(Sender: TObject);
 begin
   case CurrSymbol of
-'$':SpeedButton1.Down:=false;
-' ':SpeedButton2.Down:=false;
-'*':SpeedButton3.Down:=false;
-'@':SpeedButton4.Down:=false;
-'#':SpeedButton5.Down:=false;
-'.':SpeedButton6.Down:=false;
+    '$': sbBox.Down := False;
+    ' ': sbFloor.Down := False;
+    '*': sbPlacedBox.Down := False;
+    '@': sbCharacter.Down := False;
+    '#': sbWall.Down := False;
+    '.': sbPlace.Down := False;
   end;
-  CurrSymbol:=(Sender as TSpeedButton).Hint;
-  (Sender as TSpeedbutton).Down:=true;
+  CurrSymbol := (Sender as TSpeedButton).Hint;
+  (Sender as TSpeedbutton).Down := True;
 end;
 
 procedure TEditorForm.WidthSpinEditChange(Sender: TObject);
 begin
- CanDraw:=false;
- Case (Sender as TSpinEdit).Tag of
-  1:ChangeMatrixWidth((Sender as TSpinEdit).Value); //ширина
-  2:ChangeMatrixHeight((Sender as TSpinEdit).Value); //висота
- end;
- SkladDrawGrid.ColCount:=High(Sklad[0])+1; //стовбці
- SkladDrawGrid.RowCount:=High(Sklad)+1; //рядки
- //розміри форми підігнати під розміри рівня
- Width:=SkladDrawGrid.ColCount*SkladDrawGrid.DefaultColWidth+Panel1.Width+5;
- Height:=SkladDrawGrid.RowCount*SkladDrawGrid.DefaultRowHeight+5;
- CanDraw:=true;
- SkladDrawGrid.Repaint;//перемальовуємо поле редактора
+  CanDraw := False;
+  case (Sender as TSpinEdit).Tag of
+    1: ChangeMatrixWidth((Sender as TSpinEdit).Value); //ширина
+    2: ChangeMatrixHeight((Sender as TSpinEdit).Value); //висота
+  end;
+  SkladDrawGrid.ColCount := High(Sklad[0]) + 1; //стовбці
+  SkladDrawGrid.RowCount := High(Sklad) + 1; //рядки
+  //розміри форми підігнати під розміри рівня
+  Width := SkladDrawGrid.ColCount * SkladDrawGrid.DefaultColWidth + Panel1.Width + 5;
+  Height := SkladDrawGrid.RowCount * SkladDrawGrid.DefaultRowHeight + 5;
+  CanDraw := True;
+  SkladDrawGrid.Repaint;//перемальовуємо поле редактора
 end;
 
 end.
-
