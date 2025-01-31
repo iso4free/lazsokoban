@@ -23,7 +23,7 @@ jobs:
     strategy:
       matrix:
         os:
-          - ubuntu-latest
+          # - ubuntu-latest
           - windows-latest
     steps:
 
@@ -41,7 +41,7 @@ jobs:
           apt-get update
           apt-get install -y lazarus
         ' >/dev/null
-        declare -x INSTANTFPCOPTIONS=-Fu/usr/lib/lazarus/*/components/lazutils
+        declare -rx INSTANTFPCOPTIONS=-Fu/usr/lib/lazarus/*/components/lazutils
         instantfpc '.github/workflows/make.pas' build
 
     - name: Build on Windows
